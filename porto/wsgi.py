@@ -14,7 +14,4 @@ from django.contrib.staticfiles.handlers import StaticFilesHandler
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'porto.settings')
-if settings.DEBUG:
-    application = StaticFilesHandler(get_wsgi_application())
-else:
-    application = get_wsgi_application()
+application = get_wsgi_application()
