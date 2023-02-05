@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+import requests
 from .models import Ips
 
 def home(request):
@@ -24,11 +25,16 @@ def home(request):
     browser_version = request.user_agent.browser.version_string
     os_type = request.user_agent.os.family
     os_version = request.user_agent.os.version_string
+    response = requests.get(f'https://ipapi.co/{ip}/json/').json()
+
     cx = Ips(
         ip = ip,
         dev = device_type,
         browser = browser_type,
-        so = os_type
+        so = os_type,
+        city= response.get("city"),
+        region= response.get("region"),
+        country= response.get("country_name")
     )
     cx.save()
     context = {
