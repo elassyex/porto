@@ -86,7 +86,7 @@ DATABASES = {
     {
     'dwd':{
     'READONLY': True,
-}}
+}}}
 
 
 # Password validation
