@@ -15,3 +15,4 @@ from django.contrib.staticfiles.handlers import StaticFilesHandler
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'porto.settings')
 application = get_wsgi_application()
+app = application
