@@ -5,7 +5,7 @@ from django.http import FileResponse, Http404
 
 def resum(request):
     try:
-        return FileResponse(open('base/myresum (1) (1) (3).pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('base/myresume.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
