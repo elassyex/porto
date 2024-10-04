@@ -8,7 +8,7 @@ from django.views.generic.detail import BaseDetailView
 
 def resum(request):
     with open(settings.STATIC_ROOT / 'myresume.pdf', 'rb') as pdf:
-        response = HttpResponse(pdf.read(), mimetype='application/pdf')
+        response = HttpResponse(pdf.read())
         response['Content-Disposition'] = 'inline;filename=some_file.pdf'
         return response
     pdf.closed
