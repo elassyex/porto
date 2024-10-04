@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.detail import BaseDetailView
 
 def resum(request):
-    with open(settings.STATIC_ROOT +'myresume.pdf', 'r') as pdf:
+    with open(settings.STATIC_ROOT / 'myresume.pdf', 'r') as pdf:
         response = HttpResponse(pdf.read(), mimetype='application/pdf')
         response['Content-Disposition'] = 'inline;filename=some_file.pdf'
         return response
