@@ -2,12 +2,15 @@ from django.shortcuts import render, HttpResponse
 import requests
 from .models import Ips
 from django.http import FileResponse, Http404
+from django.shortcuts import get_object_or_404
+from django.views.generic.detail import BaseDetailView
 
 def resum(request):
-    try:
-        return FileResponse(open('base/myresume.pdf', 'rb'), content_type='application/pdf')
-    except FileNotFoundError:
-        raise Http404()
+    with open('base/myresume.pdf', 'r') as pdf:
+        response = HttpResponse(pdf.read(), mimetype='application/pdf')
+        response['Content-Disposition'] = 'inline;filename=some_file.pdf'
+        return response
+    pdf.closed
 
 def home(request):
     # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
