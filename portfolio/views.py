@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 import requests
 from .models import Ips
+import porto.settings as settings
 from django.http import FileResponse, Http404
 from django.shortcuts import get_object_or_404
 from django.views.generic.detail import BaseDetailView
