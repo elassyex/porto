@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponse
 import requests
 from .models import Ips
-
+def resum(request):
+    return render(request,'base/myresum (1) (1) (3).pdf')
 def home(request):
     # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     # if x_forwarded_for:
